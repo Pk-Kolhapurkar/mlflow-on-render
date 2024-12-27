@@ -1,1 +1,13 @@
+services:
+  - type: web
+    name: mlflow
+    env: docker
+    plan: free
+    dockerfilePath: app/Dockerfile
+    envVars:
+      - key: BACKEND_STORE_URI
+        value: <Your PostgreSQL URL>  # Set Render database URL
+      - key: ARTIFACT_STORE_URI
+        value: <Your S3/GCS URI>      # Set S3 or GCS bucket URI
+    port: 5000
 
